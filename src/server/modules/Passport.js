@@ -19,8 +19,7 @@ module.exports = {
                         user = new User({
                             oauthID: profile.id,
                             name: profile.displayName,
-                            created: Date.now(),
-                            coins: 1000
+                            created: Date.now()
                         });
                         user.save(function (err) {
                             if (err) {

@@ -14,6 +14,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 
 var User = require('./modules/User.js');
+var Answer = require('./modules/AnswersModel.js');
 
 var MongoStore = require('connect-mongo')(session);
 var passportSocketIo = require("passport.socketio");
@@ -62,7 +63,7 @@ mongoose.connect(config.get('app.mongodb'));
     var server = require('http').createServer(app);
     var io = require('socket.io')(server);
 
-    require('./routes.js')(app, passport, User);
+    require('./routes.js')(app, passport, User, Answer);
 
     io.use(passportSocketIo.authorize({
         cookieParser: cookieParser,

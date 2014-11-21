@@ -1,7 +1,93 @@
 @import "constants.less";
-@import "cards.less";
-@import "playTable.less";
+@import "buttons.less";
+@import "reset.less";
+
+html {
+  height: 100%;
+}
 
 body {
   color: @base;
+  height: 100%;
+  overflow: hidden;
+  font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 3vh;
+  min-height: 30px;
+  background: @base;
+
+  .logged-in {
+    position: relative;
+    float: left;
+    color: @baseText;
+    padding: 7px;
+
+  }
+
+  .logout {
+    position: relative;
+    float: right;
+    color: @baseText;
+    padding: 7px;
+    padding-right: 10px;
+    a {
+      color: @baseText;
+    }
+  }
+
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 97vh;
+  background: @container;
+
+  .task {
+    width: 48vw;
+    padding:1vw;
+    float:left;
+    font-size: 1.2em;
+
+    .task-description {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 0.9em;
+    }
+    .task-title {
+      font-size: 1.1em;
+    }
+
+    .controls {
+      width: 100%;
+      position: relative;
+      margin-top: 15px;
+      button {
+        width: 48%;
+      }
+    }
+
+    .symbol-counter {
+      font-size: 1.2em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+  }
+
+  .code {
+    width: 48vw;
+    padding:1vw;
+    float: left;
+    height: 90%;
+  }
+
+  .CodeMirror {
+    height: 100%;
+  }
+
 }

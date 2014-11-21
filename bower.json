@@ -15,7 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "domwork": "~0.1.1"
+    "domwork": "~0.1.1",
+    "codemirror": "~4.7.0",
+    "rsvp": "~3.0.13"
   },
   "devDependencies": {}
 }

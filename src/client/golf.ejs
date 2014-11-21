@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vendor/domwork.js"></script>
+    <script src="vendor/codemirror.js"></script>
+    <script src="vendor/javascript.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//localhost:35729/livereload.js"></script>
+    <script src="js/constants.js"></script>
+    <link rel="stylesheet" href="vendor/codemirror.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+
+<header>
+    <div class="logged-in">Logged in as <%=user.name%></div>
+    <div class="logout"><a href="/logout">Logout</a></div>
+</header>
+
+<section>
+    <div class="task">
+        <div class="task-title js-task-title"></div>
+        <div class="task-description js-task-description"></div>
+        <div class="js-symbol-counter symbol-counter">Symbols: 0</div>
+        <div class="controls">
+            <button class="js-test silver-flat-button">Test</button>
+            <button class="js-apply peter-river-flat-button">Apply solution</button>
+        </div>
+    </div>
+    <div class="code">
+        <textarea name="code" id="code" cols="30" rows="10"></textarea>
+    </div>
+</section>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

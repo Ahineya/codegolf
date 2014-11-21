@@ -56,13 +56,10 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: ['bower_components/polymer/polymer.js', 'bower_components/polymer/polymer.js.map'],
-                        dest: 'public/vendor/'
-                    },
-                    {
-                        expand: true,
-                        flatten: true,
-                        src: ['bower_components/platform/platform.js', 'bower_components/platform/platform.js.map'],
+                        src: [
+                            'bower_components/codemirror/lib/codemirror.js',
+                            'bower_components/codemirror/mode/javascript/javascript.js',
+                            'bower_components/codemirror/lib/codemirror.css'],
                         dest: 'public/vendor/'
                     },
                     {
@@ -80,16 +77,13 @@ module.exports = function(grunt) {
                     {expand: true, cwd: 'src/common', src: ['constants.js'], dest: 'public/js'}
                 ]
             },
-            ejs: {files:[{expand: true, cwd: 'src/client/', src: ['**/*.ejs'], dest: 'public/'}]},
-            polymer: {
-                files: [{expand: true, cwd: 'src/client/polymer-components', src: ['**'], dest: 'public/components/'}]
-            }
+            ejs: {files:[{expand: true, cwd: 'src/client/', src: ['**/*.ejs'], dest: 'public/'}]}
 
         },
         watch: {
             common: {
                 files: ['src/common/constants.js'],
-                tasks: ['jshint', 'karma','copy:js'],
+                tasks: ['jshint', 'copy:js'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -97,7 +91,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['src/client/**/*.js'],
-                tasks: ['jshint', 'karma','copy:js'],
+                tasks: ['jshint', 'copy:js'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -118,14 +112,6 @@ module.exports = function(grunt) {
                     livereload: true
                 }
             },
-            polymer: {
-                files: ["src/client/polymer-components/**/*"],
-                tasks: ['copy:polymer'],
-                options: {
-                    spawn: false,
-                    livereload: true
-                }
-            },
             views: {
                 files: ["src/client/**/*.ejs"],
                 tasks: ['copy:ejs'],
@@ -136,7 +122,7 @@ module.exports = function(grunt) {
             },
             tests: {
                 files: ["test/client/**/*.js"],
-                tasks: ['jshint', 'karma'],
+                tasks: ['jshint'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -206,7 +192,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-mocha-test");
     grunt.loadNpmTasks("grunt-mocha-istanbul");
 
-    grunt.registerTask('test', ['jshint', 'mochaTest', 'karma']);
+    grunt.registerTask('test', ['jshint', 'mochaTest']);
     grunt.registerTask('default', ['jshint']);
     grunt.registerTask('build', ['clean','less', 'copy']);
     grunt.registerTask('develop-front', ['clean','less', 'copy', 'connect', 'watch']);
