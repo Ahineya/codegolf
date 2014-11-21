@@ -163,7 +163,7 @@ module.exports = function(grunt) {
         },
         nodemon: {
             dev: {
-                script: 'src/server/poker.js',
+                script: 'src/server/app.js',
                 options: {
                     env: {
                         "NODE_ENV": "development",
