@@ -21,23 +21,23 @@ module.exports = function(app, passport, User, Answer) {
         });
     });
 
-    app.get('/apply', ensureAuthenticated, function(req, res){
+    app.post('/apply', ensureAuthenticated, function(req, res){
         User.findById(req.session.passport.user, function(err, user) {
             if(err) {
                 console.log(err);
             } else {
-                console.log('applied', req);
+                console.log('applied', req.body);
 
                 var answer = new Answer({
                     oauthID: user.oauthID,
-                    answer: req.query.answer
+                    answer: req.body.answer
                 });
                 answer.save(function (err) {
                     if (err) {
                         console.log(err);
                     } else {
                         console.log("saved answer ...");
-                        res.end(req.query.answer);
+                        res.end(req.body.answer);
                     }
                 });
 

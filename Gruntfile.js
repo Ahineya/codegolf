@@ -67,6 +67,12 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: ['bower_components/domwork/dist/domwork.js'],
                         dest: 'public/vendor/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['bower_components/jquery/dist/jquery.js'],
+                        dest: 'public/vendor/'
                     }
 
                 ]

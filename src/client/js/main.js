@@ -30,7 +30,7 @@
     $DW(SELECTORS.BTN_TEST).bind('click', testCode);
     $DW(SELECTORS.BTN_APPLY).bind('click', function() {
         console.log(editor.getValue());
-        var promise = $DW.ajax({
+        /*var promise = $DW.ajax({
             method: 'GET',
             url: '/apply',
             data: {
@@ -40,6 +40,17 @@
 
         promise.then(function(data) {
             console.log(data);
+        });*/
+
+        $.ajax({
+            url: '/apply',
+            type: 'POST',
+            data: {
+                answer: editor.getValue()
+            },
+            success: function(data, textStatus, xhr) {
+                console.log(data);
+            }
         });
 
     });
